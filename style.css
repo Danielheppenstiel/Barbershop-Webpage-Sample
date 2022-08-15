@@ -1,0 +1,618 @@
+/* FONTS */
+
+/* font-family: 'Playfair Display', serif; */
+
+/* RESET STYLES & CUSTOM PROPERTIES */
+
+:root {
+    --clr-org: #C38E4E;
+    --clr-cream: #EED7B5;
+    --clr-dkbl: #4F3F85;
+    --clr-cabl:  #5EA8A1;
+    --clr-cffe: #734240;
+
+    --ff-primary: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY & UNIVERSAL STYLES */
+
+body {
+    font-family: var(--ff-primary);
+    font-weight: 400;
+}
+
+/* NAVIGATION */
+
+.nav-container {
+    display: grid;
+    height: 135px;
+    grid-template-rows: 0.3fr;
+    grid-template-columns: 1fr 1fr 0.3fr;
+    grid-template-areas:
+    "header nav button";
+}
+
+header {
+    grid-area: header;
+    background-color: var(--clr-cream);
+}
+
+figure.nav-logo  {
+display: grid;
+justify-content: center;
+padding-top: 0.5rem;
+}
+
+nav.main-nav {
+    grid-area: nav;
+    display: grid;
+    justify-content: end;
+    align-items: center;
+    }
+
+nav.main-nav ul {
+    list-style: none;
+
+    }
+
+nav.main-nav ul li {
+    display: inline;
+    margin: 2rem;
+    }
+
+nav.main-nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    position: relative;
+    text-shadow: 0.5px 0.5px #000;
+}
+
+nav.main-nav ul li a:hover {
+    color: var(--clr-dkbl);
+    transition: color 1s ease-out;
+}
+
+
+    /* BOOKING BUTTON */
+
+    div.booking-button {
+    grid-area: button;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .booking-btn {
+        text-decoration: none;
+        padding: 20px 50px;
+        font-size: 1.25rem;
+        position: relative;
+        color: #000;
+    }
+
+    .booking-btn::after, .booking-btn::before {
+        content: "";
+        border: 3px solid #000;
+        position: absolute;
+        width: calc(100% - 6px);
+        height: calc(100% - 6px);
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+        transition: transform 0.3s ease;
+    }
+
+    .booking-btn:hover::after {
+        transform: translate(-5px, -5px);
+    }
+
+    .booking-btn:hover::before {
+        transform: translate(5px, 5px);
+    }
+
+    /* NAV BAR RESPONSIVE */
+
+@media only screen and (max-width: 740px) {
+
+    .nav-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas:
+        "header"
+        "nav"
+        "button";
+    }
+
+    figure.nav-logo img {
+        padding-bottom: 15px;
+    }
+
+    nav.main-nav {
+        display: none;
+        background-color: var(--clr-cream);
+    }
+
+    div.booking-button {
+        background-color: var(--clr-cream);
+    }
+
+}
+
+
+@media only screen and (min-width: 601px) and (max-width: 982px) {
+
+header.nav-container {
+    background-color: var(--clr-cream);
+}
+
+nav.main-nav ul {
+    display: flex;
+    background-color: var(--clr-cream);
+}
+
+div.booking-button {
+    background-color: var(--clr-cream);
+    margin-right: 15px;
+}
+
+}
+
+/* PAGE HEADER */
+
+div.page-header-container {
+    background-color: var(--clr-dkbl);
+    display: grid;
+    height: 100%;
+    grid-template-rows: calc(100vh - 135px);
+    grid-template-columns: 1fr 1fr 0.3fr;
+    grid-template-areas:
+    "title card  blank";
+}
+
+section.headings {
+    color: #fff;
+    grid-area: title;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    align-items: start;
+}
+
+h1.title-heading {
+    font-size: 5.5rem;
+    margin-top: 40px;
+    margin-left: 25px;
+    text-shadow: 2px 2px #000;
+}
+
+h2.sub-title-heading {
+    margin-left: 25px;
+    text-shadow: 2px 2px #000;
+}
+
+/* Header Side Card */
+
+div.card-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+div.side-card {
+    grid-area: card;
+    background-color: #fff;
+	border-radius: 20px;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.30), 0 10px 10px rgba(0, 0, 0, 0.50);
+	overflow: hidden;
+    height: 80%;
+	max-width: 100%;
+	width: 280px;
+}
+
+section.card-body {
+    padding: 40px 40px 80px;
+}
+
+section.card-body p {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+section.card-body .card-quote {
+    color: #eee;
+    font-size: 2rem;
+    float: right;
+}
+
+section.card-footer {
+    background-color: var(--clr-org);
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+section.card-footer img {
+    border: 5px solid #fff;
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    margin-top: -100px;
+}
+
+section.card-footer h3 {
+    margin: 10px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+section.card-footer h4 {
+    margin: 0;
+    letter-spacing: 1px;
+    color: var(--clr-cffe);
+}
+
+/* HEADER RESPONSIVE */
+
+@media only screen and (max-width: 780px) {
+
+    div.page-header-container {
+        background-color: var(--clr-dkbl);
+        overflow: auto;
+        display: grid;
+        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "title";
+    }
+
+    section.headings {
+        align-items: center;
+        justify-items: center;
+    }
+
+    div.card-container {
+        display: none;
+    }
+
+
+}
+
+@media only screen and (max-width: 498px) {
+
+    h1.title-heading {
+        font-size: 3.5rem;
+    }
+
+}
+
+/* SERVICES / MAIN CONTENT */
+
+div.services-container {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 10vh 90vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    "blank services blank"
+    "service1 service2 service3";
+    gap: 0.5rem;
+    background-color: var(--clr-cream);
+}
+
+div.services-container h2 {
+    color: #fff;
+    text-shadow: 2px 2px #000;
+    display: grid;
+    grid-column-start: 2;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+article.service-1 {
+    background-color: #fff;
+    grid-column-start: 1;
+    display: grid;
+    grid-template-rows: 0.5fr 1fr 0.5fr;
+    border: 3px solid #000;
+    border-radius: 20px;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.30), 0 10px 10px rgba(0, 0, 0, 0.50);
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+article.service-1 h3 {
+    display: grid;
+    justify-content: center;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+article.service-1 p {
+    display: grid;
+    justify-content: center;
+    align-items: start;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+article.service-2 {
+    grid-column-start: 2;
+    display: grid;
+    grid-template-rows: 0.5fr 1fr 0.5fr;
+    border: 3px solid #000;
+    border-radius: 20px;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.30), 0 10px 10px rgba(0, 0, 0, 0.50);
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+article.service-2 h3 {
+    display: grid;
+    justify-content: center;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+article.service-2 p {
+    display: grid;
+    justify-content: center;
+    align-items: start;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+article.service-3 {
+    grid-column-start: 3;
+    display: grid;
+    grid-template-rows: 0.5fr 1fr 0.5fr;
+    border: 3px solid #000;
+    border-radius: 20px;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.30), 0 10px 10px rgba(0, 0, 0, 0.50);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+article.service-3 h3 {
+    display: grid;
+    justify-content: center;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+article.service-3 p {
+    display: grid;
+    justify-content: center;
+    align-items: start;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+.price {
+    display: grid;
+    color: #fff;
+    background-color: var(--clr-dkbl);
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+}
+
+aside.price p {
+    font-size: 2rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+p.taxes i {
+    font-size: 1rem;
+}
+
+/* SERVICES / MAIN CONTENT  RESPONSIVE  */
+
+@media only screen and (max-width: 750px) {
+
+    div.services-container {
+        display: grid;
+        height: 100%;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 100vh;
+        grid-template-areas:
+        "services"
+        "service1"
+        "service2"
+        "service3";
+        gap: 0.5rem;
+        overflow: auto;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    div.services-container h2 {
+        grid-area: services; */
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+
+    article.service-1 {
+        background-color: #fff;
+        grid-area: service1;
+        display: grid;
+        grid-template-rows: 0.5fr 1fr 0.5fr;
+        border: 3px solid #000;
+        border-radius: 20px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.30), 0 10px 10px rgba(0, 0, 0, 0.50);
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        width: 375px;
+        height: 500px;
+    }
+
+    article.service-2 {
+        grid-area: service2;
+        display: grid;
+        grid-template-rows: 0.5fr 1fr 0.5fr;
+        border: 3px solid #000;
+        border-radius: 20px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.30), 0 10px 10px rgba(0, 0, 0, 0.50);
+        margin-bottom: 10px;
+        background-color: #fff;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        width: 375px;
+        height: 500px;
+    }
+
+    article.service-3 {
+        grid-area: service3;
+        display: grid;
+        grid-template-rows: 0.5fr 1fr 0.5fr;
+        border: 3px solid #000;
+        border-radius: 20px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.30), 0 10px 10px rgba(0, 0, 0, 0.50);
+        margin-right: 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        width: 375px;
+        height: 500px;
+    }
+
+}
+
+
+/* FOOTER */
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 10vh 60vh;
+}
+
+h3.contact-title {
+    grid-column-start: 2;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 1rem;
+}
+
+form.contact-us {
+    grid-row-start: 2;
+    grid-column-start: 3;
+    align-self: center;
+    justify-self: center;
+    height: 300px;
+    width: 400px;
+    margin-left: 1rem;
+}
+
+figure.contact-logo {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    justify-self: center;
+    align-self: center;
+}
+
+div#contact {
+    grid-row-start: 2;
+    grid-column-start: 2;
+    justify-self: center;
+    align-self: center;
+    font-size: 1.5rem;
+    line-height: 3rem;
+}
+
+/* FORM STYLES */
+
+input.input-contact {
+    border: none;
+    appearance: none;
+    background: #f2f2f2;
+    padding: 12px;
+    border-radius: 3px;
+    width: 250px;
+    outline: none;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+input::placeholder {
+    color: #222;
+    transition: color 0.3s ease;
+}
+
+input.submit {
+    border: none;
+    text-decoration: none;
+    padding: 10px 25px;
+    font-size: 1.25rem;
+    position: relative;
+    color: #fff;
+    background: #000;
+}
+
+textarea#question {
+    margin-left: 0.5re7;
+}
+
+input.submit {
+    align-items: center;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* RESPONSIVE FOOTER */
+
+@media only screen and (max-width: 1005px) {
+
+    footer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 1fr 2.5fr;
+        grid-template-areas: 
+        "footer-title"
+        "contact-info"
+        "logo";
+    }
+
+    h3.contact-title {
+        grid-area: footer-title;
+    }
+
+    div#contact {
+        grid-area: contact-info;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    form.contact-us {
+       display: none;
+    }
+
+    figure.contact-logo {
+        display: grid;
+        grid-area: logo;
+        height: 100px;
+        align-self: center;
+        margin: 10px;
+    }
+
+}
+
